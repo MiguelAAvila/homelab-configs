@@ -1,0 +1,11 @@
+version: "3.91"
+
+services:
+  cloudflaretunnel:
+    container_name: cloudflareturnel_1
+    image: cloudflare/cloudflared:latest
+    restart: always
+    env_file:
+      - ./.env
+    command: tunnel --no-autoupdate run --token $TUNNEL_TOKEN
+    network_mode: "host"

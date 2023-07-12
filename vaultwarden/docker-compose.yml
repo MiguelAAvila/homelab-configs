@@ -1,0 +1,30 @@
+services:
+  vaultwarden:
+    image: vaultwarden/server:latest
+    container_name: vaultwarden
+    restart: always
+    volumes:
+      - ./vw-data/:/data/
+    ports:
+      - 4080:80
+    environment:
+      - DOMAIN=$DOMAIN
+      - SMTP_HOST=smtp.gmail.com
+      - SMTP_FROM=$GMAIL_USERNAME
+      - SMTP_FROM_NAME=VaultWarden
+      - SMTP_SECURITY=starttls
+      - SMTP_PORT=587
+      - SMTP_USERNAME=$GMAIL_USERNAME
+      - SMTP_PASSWORD=$GMAIL_PASSWORD
+      - SMTP_TIMEOUT=30
+      - SMTP_AUTH_MECHANISM="Plain"
+      - LOGIN_RATELIMIT_MAX_BURST=10
+      - LOGIN_RATELIMIT_SECONDS=60
+      - SIGNUPS_VERIFY=true
+      - SIGNUPS_VERIFY_RESEND_TIME=3600
+      - SIGNUPS_VERIFY_RESEND_LIMIT=6
+      - EMERGENCY_ACCESS_ALLOWED=true
+      - SENDS_ALLOWED=true
+      - ADMIN_TOKEN=$ADMIN_PASSWORD
+      - WEBSOCKET_ENABLED=true
+      - SIGNUPS_ALLOWED=false

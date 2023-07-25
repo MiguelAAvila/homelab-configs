@@ -40,7 +40,7 @@ mkdir -p ~/.jitsi-meet-cfg/{web,transcripts,prosody/config,prosody/prosody-plugi
 docker-compose up -d
 ```
 
-#### Create admin user that will be incharge of creating rooms 
+#### Create admin user that will be incharge of creating rooms, we dont want random people using our service, as the service is currently open in the internet, and it can be explotied if not activated.
 - log into the docker container
 ```bash 
 docker exec -it docker-jitsi-meet-stable-8719_prosody_1 /bin/bash

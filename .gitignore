@@ -1,3 +1,5 @@
 .env
 vw-data
 index.html
+*.tar.gz
+docker-jitsi-meet-stable-*

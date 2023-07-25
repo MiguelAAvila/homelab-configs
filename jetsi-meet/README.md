@@ -1,23 +1,53 @@
 
 # Set up for Jetsi Meet
 
-- [ ] wget [jesti-verison](https://github.com/jitsi/docker-jitsi-meet/archive/refs/tags/stable-8719.tar.gz) may change when using this command, please check at the website [jetsi-latest-relase](https://github.com/jitsi/docker-jitsi-meet/releases)  
+#### Get Jetsi Meet Release package, DO NOT CLONE 
+```bash
+ wget [jesti-verison](https://github.com/jitsi/docker-jitsi-meet/archive/refs/tags/stable-8719.tar.gz)   
+```
+may change when using this command, please check at the website [jetsi-latest-relase](https://github.com/jitsi/docker-jitsi-meet/releases)
 
-- [ ] ```bash
-          tar -zxvf stable-8719.tar.gz
-      ```
+#### Extract the Release package 
 
-- [ ] ```bash  cp env.example .env```
+```bash
+tar -zxvf stable-8719.tar.gz
+```
 
-- [ ] Edit the file #TODO: add changes made to .env
+#### cd into the directory 
+```bash
+cd docker-jitsi-meet-stable-1111
+````
 
-- [ ] run pass generator ```bash ./gen-passwords.sh ```
+#### Copy the env.example file as a .env
+```bash  cp env.example .env```
 
-- [ ] run this command ```bash mkdir -p ~/.jitsi-meet-cfg/{web,transcripts,prosody/config,prosody/prosody-plugins-custom,jicofo,jvb,jigasi,jibri}```
+#### Edit the .env file with correct settings 
 
-- [ ] ```bash docker-compose up -d```
+- Edit the file #TODO: add changes made to .env
 
-- [ ] create admin that will only create rooms ```bash docker exec -it docker-jitsi-meet-stable-8719_prosody_1 /bin/bash```
+#### Generate strong password for .env with ./gen-password.sh
+```bash
+./gen-passwords.sh
+```
+#### Create required CONFIG directories
+- run this command 
+```bash 
+mkdir -p ~/.jitsi-meet-cfg/{web,transcripts,prosody/config,prosody/prosody-plugins-custom,jicofo,jvb,jigasi,jibri}
+```
 
-- [ ] run this command to create user ```bash prosodyctl --config /config/prosody.cfg.lua register myusername meet.jitsi averystrongpassword```
+#### Brind the docker container up
+```bash 
+docker-compose up -d
+```
+
+#### Create admin user that will be incharge of creating rooms 
+- log into the docker container
+```bash 
+docker exec -it docker-jitsi-meet-stable-8719_prosody_1 /bin/bash
+```
+
+- run this command to create user
+```bash
+prosodyctl --config /config/prosody.cfg.lua register myusername meet.jitsi averystrongpassword
+```
 

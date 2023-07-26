@@ -19,7 +19,9 @@ cd docker-jitsi-meet-stable-1111
 ```
 
 #### Copy the env.example file as a .env
-```bash  cp env.example .env```
+```bash  
+cp env.example .env
+```
 
 #### Edit the .env file with correct settings 
 

@@ -16,7 +16,7 @@ tar -zxvf stable-8719.tar.gz
 #### cd into the directory 
 ```bash
 cd docker-jitsi-meet-stable-1111
-````
+```
 
 #### Copy the env.example file as a .env
 ```bash  cp env.example .env```

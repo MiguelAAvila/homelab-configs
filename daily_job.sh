@@ -1,9 +1,7 @@
 #!/bin/bash
 
-ips=("192.168.0.34" "192.168.0.34" "192.168.0.34" "192.168.0.34" "192.168.0.34" "192.168.0.34")
-ports=("4080" "9443" "8282" "8080" "8443" "80")
-services=("Vault Warden" "Portainer" "Wordpress" "Guacamole" "Coder Server" "ntfy")
-notification_url="https://ntfy.avila-miguel.com/WebsiteNotification"
+# Load enviromental variables
+source .env
 
 for ((i=0; i<${#ips[@]}; i++)); do
     ip="${ips[i]}"

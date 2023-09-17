@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Load enviromental variables
-source .env
+source ~/homelab/homelab-configs/bash-script/.env
 
 for ((i=0; i<${#ips[@]}; i++)); do
     ip="${ips[i]}"
@@ -10,9 +10,9 @@ for ((i=0; i<${#ips[@]}; i++)); do
     
     if nc -z "$ip" "$port" >/dev/null 2>&1; then
         echo "$ip:$port is up"
-        curl -H "X-Tags: tada, partying_face" -H "X-Tags: $service is up" -d "Website $service is up" "$notification_url"
+        curl -H "X-Tags: tada, partying_face" -H "X-Tags: $service is up" -d "Website $service is up" "$website_notification_url"
     else
         echo "$ip:$port is down"
-        curl -H "X-Tags: rotating_light, $service is down, check status on Portainer" -H "X-Priority: 5" -d "Website $service is down failed" "$notification_url"
+        curl -H "X-Tags: rotating_light, skull, $service is down, check status on Portainer" -d "Website $service is down failed" "$website_notification_url"
     fi
 done

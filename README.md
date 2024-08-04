@@ -3,7 +3,7 @@
 ## Services currenly using: 
 - Cloudflare Tunnel
 - VaultWarden
-- Jetsi Meet
+- Jetsi Meet - pending debugging - Not working with cloudflare
 
 ## Todos after creating server: 
 
